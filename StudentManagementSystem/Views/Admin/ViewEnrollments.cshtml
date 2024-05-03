@@ -1,0 +1,40 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Enrollment>
+
+@{
+    ViewBag.Title = "ViewEnrollments";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>ViewEnrollments</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnrollmentDate)
+        </td>
+        
+    </tr>
+}
+
+</table>

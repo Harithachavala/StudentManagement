@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        body {
+            background-image: url('../../Content/Pics/book2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Calibri', sans-serif;
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 2px solid #007bff;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .login-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+            .login-table th, .login-table td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .login-table th {
+                background-color: #f2f2f2;
+            }
+
+        .login-input, .login-select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-button {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .login-button:hover {
+                background-color: #0056b3;
+            }
+
+        .login-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            <table class="login-table">
+                <tr>
+                    <th>Login Id</th>
+                    <td>@Html.TextBox("LoginId", null, new { @class = "login-input" })</td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>@Html.Password("Password", null, new { @class = "login-input" })</td>
+                </tr>
+                <tr>
+                    <th>Role</th>
+                    <td>
+                        @Html.DropDownList("Role",
+                                new List<SelectListItem>() {
+                                new SelectListItem(){Text="Teacher", Value="Teacher"},
+                                new SelectListItem(){Text="Student", Value="Student"},
+                                new SelectListItem(){Text="admin", Value="admin" }
+                        }, "Select..")
+                    </td>
+                </tr>
+                <tr>
+                    <th>New User?</th>
+                    <td>@Html.ActionLink("Sign-Up", "Register", "Home", null, new { @class = "login-link" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="login-button">Sign In</button>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

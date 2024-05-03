@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Teacher>
+
+@{
+    ViewBag.Title = "GetTeachers";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Teachers</h2>
+
+<p>
+    @Html.ActionLink("Add Teacher", "AddTeacher", "Admin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherQualification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedCourse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherQualification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedCourse)
+        </td>
+        <td>
+            @Html.ActionLink("Map Course", "AssignCourse", "Admin", new { id = item.TeacherId }, null) |
+            @Html.ActionLink("Edit", "EditTeacher", "Admin", new { id = item.TeacherId }, null) |
+            @Html.ActionLink("Details", "TeacherDetail", "Admin", new { id = item.TeacherId }, null) |
+            @Html.ActionLink("Delete", "DeleteTeacher", "Admin", new { id = item.TeacherId }, null)
+        </td>
+    </tr>
+}
+
+</table>

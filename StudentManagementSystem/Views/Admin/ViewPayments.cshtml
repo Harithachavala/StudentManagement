@@ -1,0 +1,49 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Payment>
+
+@{
+    ViewBag.Title = "ViewPayments";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Payment Details</h2>
+<p>
+    @Html.ActionLink("Add Payment", "AddPayment", "Admin")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
+        </td>
+        
+    </tr>
+}
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Course>
+
+@{
+    ViewBag.Title = "GetCourses";
+    Layout = "~/Views/Shared/TeacherLayout.cshtml";
+}
+
+<h2>GetCourses</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Credits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseFee)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Credits)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseFee)
+        </td>
+        
+    </tr>
+}
+
+</table>

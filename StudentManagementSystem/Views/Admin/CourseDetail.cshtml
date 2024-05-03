@@ -1,0 +1,55 @@
+﻿@model StudentManagementSystem.Models.Course
+
+@{
+    ViewBag.Title = "CourseDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>CourseDetail | @Html.ActionLink("Mapped Teacher", "ViewMapTeacher", "Admin", new {id = Model.CourseId}, null)</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Credits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseFee)
+        </dd>
+
+    </dl>
+</div>
+

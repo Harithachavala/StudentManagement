@@ -1,0 +1,47 @@
+﻿@model StudentManagementSystem.Models.Payment
+
+@{
+    ViewBag.Title = "PaymentDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>PaymentDetail</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+
+    </dl>
+</div>

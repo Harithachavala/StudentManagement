@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gallery</h2>
+<div class="gallery">
+    <figure class="gallery__item">
+        <img src="~/Content/Pics/photo1.jpg" alt="Photo 1" class="gallery__img">
+    </figure>
+    <figure class="gallery__item">
+        <img src="~/Content/Pics/photo2.jpg" alt="Photo 2" class="gallery__img">
+    </figure>
+    <figure class="gallery__item">
+        <img src="~/Content/Pics/photo3.jpg" alt="Photo 3" class="gallery__img">
+    </figure>
+</div>
+<style>
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .gallery__item {
+        flex: 1 0 21%; /* This will create a 5-column layout */
+        margin-bottom: 10px;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    .gallery__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .3s ease;
+    }
+
+        .gallery__img:hover {
+            transform: scale(1.1);
+        }
+</style>
+
+

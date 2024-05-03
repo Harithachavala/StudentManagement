@@ -1,0 +1,61 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.Enrollment>
+
+@{
+    ViewBag.Title = "ViewEnrollments";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+<h2>ViewEnrollments</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </th>
+        <th>
+            Grade
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnrollmentDate)
+        </td>
+       
+        <td>
+            @{
+                StudentManagementSystem.Models.Grade g = (new StudentManagementSystem.Models.StudentContext()).Grades.Where(gr => gr.EnrolledId == item.EnrollmentId).FirstOrDefault();
+                string gname = "";
+                if (g != null)
+                {
+                    gname = g.GradeName;
+
+                }
+
+            }
+            @gname
+        </td>
+        <td>
+
+            @Html.ActionLink("Pay Now", "PayNow", "Student", new { id = item.EnrollmentId }, new { @class = "btn btn-primary" })
+
+        </td>
+    </tr>
+}
+
+</table>

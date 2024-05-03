@@ -1,0 +1,50 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.CourseTeacher>
+
+@{
+    ViewBag.Title = "ViewMapTeacoher";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    
+}
+
+<h2>ViewMapTeacher</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            CourseName
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherId)
+        </th>
+        <th>
+           TeacherName
+        </th>
+
+
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @{
+            StudentManagementSystem.Models.Course c = (new StudentManagementSystem.Models.StudentContext()).Courses.Find(item.CourseId);
+
+        }
+        <td>
+            @c.CourseName
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.TeacherName)
+        </td>
+        @{
+            StudentManagementSystem.Models.Teacher t = (new StudentManagementSystem.Models.StudentContext()).Teachers.Find(item.TeacherId);
+
+        }
+        <td>
+            @t.TeacherName
+        </td>
+    </tr>
+           }
+
+</table>
